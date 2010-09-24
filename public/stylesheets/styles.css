@@ -9,3 +9,31 @@ body {
 .footer {
   text-align: center;
 }
+
+.flash {
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 2px solid #ddd;
+}
+
+.flash .error, .failure {
+  background: #FBE3E4;
+  color: #8a1f11;
+  border-color: #FBC2C4;
+}
+
+.flash .notice {
+  background: #FFF6BF;
+  color: #514721;
+  border-color: #FFD324;
+}
+
+.flash .success {
+  background: #E6EFC2;
+  color: #264409;
+  border-color: #C6D880;
+}
+
+li.required label {
+  font-weight: bold;
+}
