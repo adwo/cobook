@@ -44,4 +44,11 @@ describe UsersController do
       end
     end
   end
+  
+  describe 'GET show' do
+    it 'should redirect unauthorized users to sign in page' do
+      get :show
+      response.should redirect_to(sign_in_path)
+    end
+  end
 end
