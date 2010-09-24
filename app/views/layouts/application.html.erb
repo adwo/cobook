@@ -14,7 +14,7 @@
       <ul class="hmenu">
       <% if signed_in? %>
         <li><%= link_to 'My contacts', contacts_path %></li>
-        <li><%= link_to 'Sign out', sign_out_path %></li>
+        <li><%= link_to 'Sign out', sign_out_path, :method => :delete %></li>
       <% else %>
         <li><%= link_to 'Sign in', sign_in_path %></li>
       <% end %>
