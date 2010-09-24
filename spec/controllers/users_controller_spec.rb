@@ -16,4 +16,32 @@ describe UsersController do
       response.should have_selector('form#new_user')
     end
   end
+  
+  describe 'POST create' do
+    describe 'failure' do
+      before do
+        @user = Factory.build(:user, :email => '')
+        User.stub!(:new).and_return(@user)
+        @user.should_receive(:save).and_return(false)
+      end
+      
+      it 'should render the sign up page' do
+        post :create, :user => @user
+        response.should render_template('new')
+      end
+    end
+    
+    describe 'successful' do
+      before do
+        @user = Factory.build(:user)
+        User.stub!(:new).and_return(@user)
+        @user.should_receive(:save).and_return(true)
+      end
+      
+      it 'should redirect to account page after login' do
+        post :create, :user => @user
+        response.should redirect_to(account_path)
+      end
+    end
+  end
 end

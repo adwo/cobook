@@ -32,4 +32,7 @@ Cobook::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+  
+  # This assumes you're running your local development server on port 3000 via script/server
+  config.action_mailer.default_url_options = { :host => '127.0.0.1:3000' }
 end
