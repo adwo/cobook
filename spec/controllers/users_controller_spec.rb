@@ -50,5 +50,10 @@ describe UsersController do
       get :show
       response.should redirect_to(sign_in_path)
     end
+    
+    it 'should be successful for signed in user' do
+      sign_in
+      response.should be_success
+    end
   end
 end
