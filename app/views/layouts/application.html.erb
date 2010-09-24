@@ -11,9 +11,6 @@
   <div class="container">
     <div class="header">
       <h1><a href="/">coBook!</a></h1>
-      <% if signed_in? %>
-        <%= link_to 'Sign out', sign_out_path, :method => :delete %>
-      <% end %>
     </div>
     <div class="body">
       <h2><%= title :detail %></h2>
