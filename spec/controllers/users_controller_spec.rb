@@ -38,9 +38,9 @@ describe UsersController do
         @user.should_receive(:save).and_return(true)
       end
       
-      it 'should redirect to account page after login' do
+      it 'should redirect to contacts page after login' do
         post :create, :user => @user
-        response.should redirect_to(account_path)
+        response.should redirect_to(contacts_path)
       end
     end
   end
@@ -51,9 +51,18 @@ describe UsersController do
       response.should redirect_to(sign_in_path)
     end
     
-    it 'should be successful for signed in user' do
-      sign_in
-      response.should be_success
+    describe 'signed in' do
+      before do
+        sign_in
+      end
+      
+      it 'should be successful' do
+        response.should be_success
+      end
+      
+      it 'should have sign out link' do
+        response.should have_selector('a', :href => sign_out_path)
+      end
     end
   end
 end
