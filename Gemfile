@@ -5,9 +5,10 @@ gem 'rails', '3.0.0'
 gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'clearance', '0.9.0.rc9'
 gem 'formtastic'
+gem 'paperclip'
 
 group :development, :test do
-  gem 'rspec-rails', '>= 2.0.0.beta.22'
+  gem 'rspec-rails', '= 2.0.0.beta.20'
   gem 'webrat'
   gem 'factory_girl_rails'
   gem 'shoulda'
