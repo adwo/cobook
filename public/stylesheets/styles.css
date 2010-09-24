@@ -1,9 +1,52 @@
+@import "reset.css" screen, projection;
+
 body {
   font: 12px sans-serif;
 }
 
+p {
+  margin-bottom: 10px;
+}
+
+a {
+  color: #222;
+}
+
+a:hover {
+  color: #ffa500;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 26px;
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.container {
+  padding: 10px;
+}
+
 .body {
   padding: 10px 0;
+}
+
+.header {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.hmenu {
+  position: absolute;
+  right: 10px; top: 0;
+}
+
+.hmenu li {
+  display: inline;
+  margin-left: 10px;
 }
 
 .footer {
@@ -16,19 +59,19 @@ body {
   border: 2px solid #ddd;
 }
 
-.flash .error, .failure {
+.flash.error, .flash.failure {
   background: #FBE3E4;
   color: #8a1f11;
   border-color: #FBC2C4;
 }
 
-.flash .notice {
+.flash.notice {
   background: #FFF6BF;
   color: #514721;
   border-color: #FFD324;
 }
 
-.flash .success {
+.flash.success {
   background: #E6EFC2;
   color: #264409;
   border-color: #C6D880;
