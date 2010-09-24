@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>coBook!</title>
+  <title><%= title %> - coBook!</title>
   <%= stylesheet_link_tag 'styles' %>
   <%= formtastic_stylesheet_link_tag %>
   <%= javascript_include_tag :defaults %>
@@ -13,6 +13,7 @@
       <h1><a href="/">coBook!</a></h1>
     </div>
     <div class="body">
+      <h2><%= title :detail %></h2>
       <%= yield %>
     </div>
     <div class="footer">
