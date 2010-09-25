@@ -13,12 +13,14 @@
     <div class="header">
       <h1><a href="/">coBook!</a></h1>
       <ul class="hmenu">
+      <li><%= link_to 'Home', root_path %></li>
       <% if signed_in? %>
         <li><%= link_to 'My contacts', contacts_path %></li>
         <li><%= link_to 'Sign out', sign_out_path, :method => :delete %></li>
       <% else %>
         <li><%= link_to 'Sign in', sign_in_path %></li>
       <% end %>
+      <li><%= link_to 'About', about_path %></li>
       </ul>
     </div>
     <div class="body">

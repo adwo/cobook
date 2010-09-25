@@ -10,4 +10,7 @@ Cobook::Application.routes.draw do
     :only => [:new, :create, :destroy]
   
   resources :contacts
+  
+  root :to => 'pages#index'
+  match 'about' => 'pages#about', :as => 'about'
 end
