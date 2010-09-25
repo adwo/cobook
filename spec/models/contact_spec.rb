@@ -11,6 +11,4 @@ describe Contact do
   it { should validate_format_of(:phone).with(Contact::PhoneRegexp) }
   
   it { should have_attached_file(:photo) }
-  it { should validate_attachment_content_type(:photo).
-                  allowing(Contact::CONTENT_TYPES) }
 end

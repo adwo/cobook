@@ -1,6 +1,6 @@
 class Contact < ActiveRecord::Base
   PhoneRegexp   = /^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$/
-  CONTENT_TYPES = %w(image/gif image/jpeg image/png)
+  CONTENT_TYPES = %w(image/png image/x-png image/jpeg image/pjpeg image/gif)
   
   has_attached_file :photo
   
@@ -14,6 +14,6 @@ class Contact < ActiveRecord::Base
     
   validates :phone,
     :format => { :with => PhoneRegexp }
-    
+  
   validates_attachment_content_type :photo, :content_type => CONTENT_TYPES
 end

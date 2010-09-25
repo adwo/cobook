@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
   include Clearance::User
   after_create :confirm_user
-  has_attached_file :photo
   
   def deliver_confirmation_email
     # Do Nothing
