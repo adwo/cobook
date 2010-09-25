@@ -16,4 +16,5 @@ class Contact < ActiveRecord::Base
     :format => { :with => PhoneRegexp }
   
   validates_attachment_content_type :photo, :content_type => CONTENT_TYPES
+  validates_attachment_size :photo, :less_than => 2.megabytes
 end
