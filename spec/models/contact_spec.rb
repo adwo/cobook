@@ -12,4 +12,9 @@ describe Contact do
   
   it { should have_attached_file(:photo) }
   it { should validate_attachment_size(:photo).less_than(2.megabytes) }
+  
+  it 'should return display gender name' do
+    @contact = Factory.build(:contact)
+    @contact.gender_display.should == 'Male'
+  end
 end

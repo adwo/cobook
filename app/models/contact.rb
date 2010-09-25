@@ -4,17 +4,33 @@ class Contact < ActiveRecord::Base
   
   has_attached_file :photo
   
+  # Name validations
   validates :name,
     :presence => true,
     :length => { :maximum => 60 }
-    
+  
+  # Gender validations
   validates :gender,
     :inclusion => { :in => ['m', 'f'] },
     :length => { :maximum => 1 }
     
+  # Phone validations
   validates :phone,
     :format => { :with => PhoneRegexp }
   
+  # Paperclip validations
   validates_attachment_content_type :photo, :content_type => CONTENT_TYPES
   validates_attachment_size :photo, :less_than => 2.megabytes
+  
+  # This method return display gender name: 'Male' for 'm' and 'Female' for 'f'.
+  def gender_display
+    case self.gender
+    when 'm'
+      I18n.t(:male, :default => 'Male')
+    when 'f'
+      I18n.t(:female, :default => 'Female')
+    else
+      true
+    end
+  end
 end
