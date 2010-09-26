@@ -5,4 +5,5 @@ Factory.define :contact do |contact|
   contact.photo_file_name     'photo.jpg'
   contact.photo_content_type  'image/jpeg'
   contact.photo_file_size     100
+  contact.group { |g| g.association(:group) }
 end

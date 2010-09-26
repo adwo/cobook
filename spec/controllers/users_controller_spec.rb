@@ -36,7 +36,7 @@ describe UsersController do
         post :create
       end
       
-      it { should redirect_to(contacts_path) }
+      it { should redirect_to(groups_path) }
     end
   end
 end
