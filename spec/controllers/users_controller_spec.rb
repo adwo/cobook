@@ -10,10 +10,7 @@ describe UsersController do
     end
     
     it { should respond_with(:success) }
-    
-    it 'should have registration form' do
-      response.should have_selector('form#new_user')
-    end
+    it { should have_selector('form#new_user') }
   end
   
   describe 'POST :create' do
