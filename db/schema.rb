@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(:version => 20100925112040) do
     t.string   "name"
     t.string   "phone"
     t.string   "gender",             :limit => 1
+    t.integer  "group_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "photo_file_name"

@@ -4,7 +4,7 @@ class CreateContacts < ActiveRecord::Migration
       t.string :name
       t.string :phone
       t.string :gender, :limit => 1
-      
+      t.references :group
       t.timestamps
     end
   end

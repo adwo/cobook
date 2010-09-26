@@ -2,6 +2,7 @@ class Contact < ActiveRecord::Base
   PhoneRegexp   = /^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$/
   CONTENT_TYPES = %w(image/png image/x-png image/jpeg image/pjpeg image/gif)
   
+  belongs_to :group
   has_attached_file :photo
   
   # Name validations
