@@ -9,7 +9,9 @@ Cobook::Application.routes.draw do
     :controller => 'sessions',
     :only => [:new, :create, :destroy]
   
-  resources :contacts
+  resources :groups do
+    resources :contacts
+  end
   
   root :to => 'pages#index'
   match 'about' => 'pages#about', :as => 'about'

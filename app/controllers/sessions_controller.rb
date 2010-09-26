@@ -1,6 +1,6 @@
 class SessionsController < Clearance::SessionsController
   private
     def url_after_create
-      contacts_path
+      groups_path
     end
 end
