@@ -30,21 +30,9 @@ h2 {
   padding: 10px;
 }
 
-.body {
-  padding: 10px 0;
-}
-
-.body ul {
-  margin-left: 20px;
-}
-
-.body ul li {
-  list-style-type: square;
-}
-
 .header {
-  position: relative;
   margin-bottom: 20px;
+  position: relative;
 }
 
 .hmenu {
@@ -57,8 +45,17 @@ h2 {
   margin-left: 10px;
 }
 
-.footer {
-  text-align: center;
+.body {
+  padding: 10px 0;
+}
+
+.body ul {
+  margin-left: 20px;
+}
+
+.body ul li {
+  list-style-type: square;
+  margin-bottom: 5px;
 }
 
 .flash {
@@ -89,4 +86,8 @@ li.required label {
 
 p.actions a {
   margin-right: 5px
+}
+
+.footer {
+  text-align: center;
 }
