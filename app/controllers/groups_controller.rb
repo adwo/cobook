@@ -19,9 +19,4 @@ class GroupsController < ApplicationController
       render 'new'
     end
   end
-  
-  def show
-    @group = Group.find(params[:id])
-    @contacts = @group.contacts
-  end
 end

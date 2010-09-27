@@ -20,10 +20,16 @@ describe ContactsController do
   describe 'GET :index' do
     before do
       sign_in
+      @group = Factory(:group)
       do_get(:index)
     end
     
     it { should respond_with(:success) }
+    
+    it 'should have a link for creating new contact' do
+      response.should have_selector('a',
+        :href => new_group_contact_path(@group))
+    end
   end
   
   describe 'GET :new' do
