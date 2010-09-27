@@ -77,7 +77,7 @@ describe GroupsController do
     it { should respond_with(:success) }
     
     it 'should have a form for editing group' do
-      response.should have_selector('form#edit_group')
+      response.should have_selector("form#edit_group_#{@group.id}")
     end
   end
 end
