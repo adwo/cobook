@@ -15,7 +15,7 @@ class Contact < ActiveRecord::Base
   
   # Gender validations
   validates :gender,
-    :allow_blank => true,
+    :presence => true,
     :inclusion => { :in => ['m', 'f'] },
     :length => { :maximum => 1 }
     
@@ -37,8 +37,6 @@ class Contact < ActiveRecord::Base
       I18n.t(:male, :default => 'Male')
     when 'f'
       I18n.t(:female, :default => 'Female')
-    else
-      'Unknown'
     end
   end
 end
