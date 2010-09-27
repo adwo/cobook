@@ -16,6 +16,9 @@ describe GroupsController do
     end
     
     it { should respond_with(:success) }
-    it { should have_selector('ul.groups') }
+    
+    it 'should have groups list' do
+      response.should have_selector('ul.groups')
+     end
   end
 end
