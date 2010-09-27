@@ -79,5 +79,10 @@ describe GroupsController do
     it 'should have contacts list' do
       response.should have_selector('ul.contacts')
     end
+    
+    it 'should have a link for creating new contact' do
+      response.should have_selector('a',
+        :href => new_group_contact_path(@group))
+    end
   end
 end
