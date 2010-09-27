@@ -1,6 +1,9 @@
 <% @title = @group.name %>
 
-<p><%= link_to 'New contact', new_group_contact_path(@group) %></p>
+<p class="actions">
+  <%= link_to 'New contact', new_group_contact_path(@group) %>
+  <%= link_to 'Edit group', edit_group_path(@group) %>
+</p>
 
 <ul class="contacts">
 <% @contacts.each do |contact| %>

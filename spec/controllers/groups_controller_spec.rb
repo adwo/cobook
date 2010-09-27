@@ -66,4 +66,18 @@ describe GroupsController do
       it { should redirect_to(group_contacts_path(@group)) }
     end
   end
+  
+  describe 'GET :edit' do
+    before do
+      sign_in
+      @group = Factory(:group)
+      get :edit, :id => @group
+    end
+    
+    it { should respond_with(:success) }
+    
+    it 'should have a form for editing group' do
+      response.should have_selector('form#edit_group')
+    end
+  end
 end

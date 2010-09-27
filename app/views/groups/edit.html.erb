@@ -1,0 +1,11 @@
+<% @title = 'Edit group' %>
+
+<%= semantic_form_for @group do |form| %>
+  <%= form.semantic_errors %>
+  <%= form.inputs do %>
+    <%= form.input :name %>
+  <% end %>
+  <%= form.buttons do %>
+    <%= form.commit_button 'Update' %>
+  <% end %>
+<% end %>
