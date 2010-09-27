@@ -17,7 +17,7 @@ class ContactsController < ApplicationController
     
     if @contact.save
       redirect_to group_contact_path(@group, @contact),
-        :success => 'Contact successfully created.'
+        :notice => 'Contact successfully created.'
     else
       render 'new'
     end

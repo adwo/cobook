@@ -15,7 +15,7 @@ class GroupsController < ApplicationController
     
     if @group.save
       redirect_to group_contacts_path(@group),
-        :success => 'Group successfully created.'
+        :notice => 'Group successfully created.'
     else
       render 'new'
     end
@@ -30,7 +30,7 @@ class GroupsController < ApplicationController
     
     if @group.update_attributes(params[:group])
       redirect_to group_contacts_path(@group),
-        :success => 'Group successfully updated.'
+        :notice => 'Group successfully updated.'
     else
       render 'edit'
     end

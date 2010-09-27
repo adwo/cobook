@@ -73,16 +73,10 @@ h2 {
   border-color: #FBC2C4;
 }
 
-.flash.notice {
+.flash.notice, .flash.success {
   background: #FFF6BF;
   color: #514721;
   border-color: #FFD324;
-}
-
-.flash.success {
-  background: #E6EFC2;
-  color: #264409;
-  border-color: #C6D880;
 }
 
 li.required label {
