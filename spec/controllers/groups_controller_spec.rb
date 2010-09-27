@@ -38,4 +38,32 @@ describe GroupsController do
       response.should have_selector('form#new_group')
     end
   end
+  
+  describe 'POST :create' do
+    before do
+      sign_in
+    end
+    
+    describe 'failure' do
+      before do
+        @group = Factory.build(:group, :name => '')
+        Group.stub!(:new).and_return(@group)
+        @group.should_receive(:save).and_return(false)
+        post :create, :group => @group
+      end
+      
+      it { should render_template(:new) }
+    end
+    
+    describe 'successful' do
+      before do
+        @group = Factory.build(:group)
+        Group.stub!(:new).and_return(@group)
+        @group.should_receive(:save).and_return(true)
+        post :create
+      end
+      
+      it { should redirect_to(@group) }
+    end
+  end
 end
