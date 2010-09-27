@@ -10,4 +10,16 @@ class ContactsController < ApplicationController
     @group = Group.find(params[:group_id])
     @contact = @group.contacts.new
   end
+  
+  def create
+    @group = Group.find(params[:group_id])
+    @contact = @group.contacts.new(params[:contact])
+    
+    if @contact.save
+      redirect_to group_contact_path(@group, @contact),
+        :success => 'Contact successfully created.'
+    else
+      render 'new'
+    end
+  end
 end

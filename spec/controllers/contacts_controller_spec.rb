@@ -20,7 +20,6 @@ describe ContactsController do
   describe 'GET :index' do
     before do
       sign_in
-      @group = Factory(:group)
       do_get(:index)
     end
     
@@ -42,6 +41,34 @@ describe ContactsController do
     
     it 'should have a new contact form' do
       response.should have_selector('form#new_contact')
+    end
+  end
+  
+  describe 'POST :create' do
+    before do
+      sign_in
+    end
+    
+    describe 'failure' do
+      before do
+        @contact = Factory.build(:contact, :name => '')
+        Contact.stub!(:new).and_return(@contact)
+        @contact.should_receive(:save).and_return(false)
+        post :create, :contact => @contact, :group_id => @group
+      end
+      
+      it { should render_template(:new) }
+    end
+    
+    describe 'successful' do
+      before do
+        @contact = Factory(:contact)
+        Contact.stub!(:new).and_return(@contact)
+        @contact.should_receive(:save).and_return(true)
+        post :create, :contact => @contact, :group_id => @group
+      end
+      
+      it { should redirect_to(group_contact_path(@group, @contact)) }
     end
   end
 end
