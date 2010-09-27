@@ -84,5 +84,24 @@ describe ContactsController do
     end
     
     it { should respond_with(:success) }
+    
+    it 'should have a link for editing contact' do
+      response.should have_selector('a',
+        :href => edit_group_contact_path(@group, @contact))
+    end
+  end
+  
+  describe 'GET :edit' do
+    before do
+      sign_in
+      @contact = Factory(:contact)
+      get :edit, :id => @contact, :group_id => @group
+    end
+    
+    it { should respond_with(:success) }
+    
+    it 'should have a form for editing group' do
+      response.should have_selector("form#edit_contact_#{@contact.id}")
+    end
   end
 end

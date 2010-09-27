@@ -27,4 +27,21 @@ class ContactsController < ApplicationController
     @group = Group.find(params[:group_id])
     @contact = Contact.find(params[:id])
   end
+  
+  def edit
+    @group = Group.find(params[:group_id])
+    @contact = Contact.find(params[:id])
+  end
+  
+  def update
+    @group = Group.find(params[:group_id])
+    @contact = Contact.find(params[:id])
+    
+    if @contact.update_attributes(params[:contact])
+      redirect_to group_contact_path(@group, @contact),
+        :notice => 'Contact successfully updated.'
+    else
+      render 'edit'
+    end
+  end
 end

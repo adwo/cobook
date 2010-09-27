@@ -1,0 +1,16 @@
+<% @title = 'Edit contact' %>
+
+<%= semantic_form_for [@group, @contact],
+  :html => { :multipart => true } do |form| %>
+  <%= form.semantic_errors %>
+  <%= form.inputs do %>
+    <%= form.input :name %>
+    <%= form.input :phone %>
+    <%= form.input :gender, :as => :select, 
+      :collection => [['Male', 'm'], ['Female', 'f']] %>
+    <%= form.input :photo %>
+  <% end %>
+  <%= form.buttons do %>
+    <%= form.commit_button 'Update' %>
+  <% end %>
+<% end %>
