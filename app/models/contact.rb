@@ -3,7 +3,8 @@ class Contact < ActiveRecord::Base
   CONTENT_TYPES = %w(image/png image/x-png image/jpeg image/pjpeg image/gif)
   
   belongs_to :group
-  has_attached_file :photo
+  has_attached_file :photo, :styles => { :normal => '250x250>' },
+    :path => ':rails_root/public/photos/:style_:id.:extension'
   
   # Name validations
   validates :name,
