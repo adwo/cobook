@@ -12,7 +12,6 @@ class Contact < ActiveRecord::Base
   
   # Gender validations
   validates :gender,
-    :presence => true,
     :inclusion => { :in => ['m', 'f'] },
     :length => { :maximum => 1 }
     

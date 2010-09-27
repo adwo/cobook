@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe ContactsController do
+  render_views
   subject { controller }
   
   before do
@@ -32,5 +33,9 @@ describe ContactsController do
     end
     
     it { should respond_with(:success) }
+    
+    it 'should have a new contact form' do
+      response.should have_selector('form#new_contact')
+    end
   end
 end

@@ -5,7 +5,6 @@ describe Contact do
   it { should validate_presence_of(:name) }
   it { should ensure_length_of(:name).is_at_most(60) }
   
-  it { should validate_presence_of(:gender) }
   it { should ensure_length_of(:gender).is_at_most(1) }
   it { should allow_value('m').for(:gender) }
   it { should_not allow_value('a').for(:gender) }
