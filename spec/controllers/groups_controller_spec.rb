@@ -25,4 +25,13 @@ describe GroupsController do
       response.should have_selector('a', :href => new_group_path)
     end
   end
+  
+  describe 'GET :new' do
+    before do
+      sign_in
+      get :new
+    end
+    
+    it { should respond_with(:success) }
+  end
 end
