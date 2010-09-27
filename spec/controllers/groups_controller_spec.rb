@@ -66,4 +66,14 @@ describe GroupsController do
       it { should redirect_to(@group) }
     end
   end
+  
+  describe 'GET :show' do
+    before do
+      sign_in
+      @group = Factory.create(:group)
+      get :show, :id => @group
+    end
+    
+    it { should respond_with(:success) }
+  end
 end
