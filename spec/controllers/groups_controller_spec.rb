@@ -21,7 +21,7 @@ describe GroupsController do
       response.should have_selector('ul.groups')
     end
      
-    it 'should have link for creatng new group' do
+    it 'should have a link for creatng new group' do
       response.should have_selector('a', :href => new_group_path)
     end
   end
