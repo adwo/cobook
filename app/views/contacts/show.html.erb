@@ -1,5 +1,7 @@
 <% @title = "#{@contact.name} / #{@group.name}" %>
 
+<p><%= link_to 'Back to contacts list', group_contacts_path(@group) %></p>
+
 <%= image_tag @contact.photo.url(:normal) %>
 
 <ul class="contact-info">

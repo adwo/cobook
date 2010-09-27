@@ -4,8 +4,8 @@ class Contact < ActiveRecord::Base
   
   belongs_to :group
   has_attached_file :photo, :styles => { :normal => '250x250>' },
-    :path => ':rails_root/public/photos/:style_:id.:extension',
-    :url => '/photos/:style_:id.:extension',
+    :path => ':rails_root/public/photos/:id.:extension',
+    :url => '/photos/:id.:extension',
     :default_url => '/images/default_photo.jpg'
   
   # Name validations
@@ -18,7 +18,7 @@ class Contact < ActiveRecord::Base
     :presence => true,
     :inclusion => { :in => ['m', 'f'] },
     :length => { :maximum => 1 }
-    
+  
   # Phone validations
   validates :phone,
     :allow_blank => true,
