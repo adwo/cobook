@@ -1,0 +1,8 @@
+<% @title = "#{@contact.name} / #{@group.name}" %>
+
+<%= image_tag @contact.photo.url(:normal) %>
+
+<ul class="contact-info">
+  <li>Phone: <%= @contact.phone.empty? ? 'Unknown' : @contact.phone %></li>
+  <li>Gender: <%= @contact.gender_display %></li>
+</ul>

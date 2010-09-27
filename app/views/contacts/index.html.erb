@@ -4,6 +4,6 @@
 
 <ul class="contacts">
 <% @contacts.each do |contact| %>
-  <li><%= contact.name %></li>
+  <li><%= link_to contact.name, group_contact_path(@group, contact) %></li>
 <% end %>
 </ul>

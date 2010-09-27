@@ -88,3 +88,7 @@ h2 {
 li.required label {
   font-weight: bold;
 }
+
+.contact-info {
+  margin-top: 20px;
+}

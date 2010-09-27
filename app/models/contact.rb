@@ -4,7 +4,9 @@ class Contact < ActiveRecord::Base
   
   belongs_to :group
   has_attached_file :photo, :styles => { :normal => '250x250>' },
-    :path => ':rails_root/public/photos/:style_:id.:extension'
+    :path => ':rails_root/public/photos/:style_:id.:extension',
+    :url => '/photos/:style_:id.:extension',
+    :default_url => '/images/default_photo.jpg'
   
   # Name validations
   validates :name,
@@ -36,7 +38,7 @@ class Contact < ActiveRecord::Base
     when 'f'
       I18n.t(:female, :default => 'Female')
     else
-      true
+      'Unknown'
     end
   end
 end

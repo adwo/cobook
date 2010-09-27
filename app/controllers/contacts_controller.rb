@@ -22,4 +22,9 @@ class ContactsController < ApplicationController
       render 'new'
     end
   end
+  
+  def show
+    @group = Group.find(params[:group_id])
+    @contact = Contact.find(params[:id])
+  end
 end

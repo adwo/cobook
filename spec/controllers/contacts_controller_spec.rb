@@ -8,8 +8,12 @@ describe ContactsController do
     @group = Factory(:group)
   end
   
-  def do_get(action)
-    get action, :group_id => @group
+  def do_get(action, id=nil)
+    if id.nil?
+      get action, :group_id => @group
+    else
+      get action, :id => id, :group_id => @group
+    end
   end
   
   it 'should redirect unsigned user to sign in page' do
@@ -70,5 +74,15 @@ describe ContactsController do
       
       it { should redirect_to(group_contact_path(@group, @contact)) }
     end
+  end
+  
+  describe 'GET :show' do
+    before do
+      sign_in
+      @contact = Factory(:contact)
+      do_get(:show, @contact)
+    end
+    
+    it { should respond_with(:success) }
   end
 end
