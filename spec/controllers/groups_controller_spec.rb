@@ -33,5 +33,9 @@ describe GroupsController do
     end
     
     it { should respond_with(:success) }
+    
+    it 'should have form for creating new group' do
+      response.should have_selector('form#new_group')
+    end
   end
 end
