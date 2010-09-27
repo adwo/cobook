@@ -70,10 +70,14 @@ describe GroupsController do
   describe 'GET :show' do
     before do
       sign_in
-      @group = Factory.create(:group)
+      @group = Factory(:group)
       get :show, :id => @group
     end
     
     it { should respond_with(:success) }
+    
+    it 'should have contacts list' do
+      response.should have_selector('ul.contacts')
+    end
   end
 end

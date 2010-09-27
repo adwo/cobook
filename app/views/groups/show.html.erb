@@ -1,1 +1,7 @@
 <% @title = @group.name %>
+
+<ul class="contacts">
+<% @contacts.each do |contact| %>
+  <li><%= contact.name %></li>
+<% end %>
+</ul>

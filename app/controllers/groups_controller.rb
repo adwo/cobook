@@ -21,5 +21,6 @@ class GroupsController < ApplicationController
   
   def show
     @group = Group.find(params[:id])
+    @contacts = @group.contacts
   end
 end
