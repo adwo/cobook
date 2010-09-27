@@ -29,6 +29,10 @@ class Contact < ActiveRecord::Base
     :unless =>  Proc.new { |model| model.photo_file_name.blank? }
   validates_attachment_size :photo, :less_than => 2.megabytes,
     :unless =>  Proc.new { |model| model.photo_file_name.blank? }
+    
+  # Named scopes for get contacts by gender
+  scope :male, where(:gender => 'm')
+  scope :female, where(:gender => 'f')
   
   # This method return display gender name: 'Male' for 'm' and 'Female' for 'f'.
   def gender_display

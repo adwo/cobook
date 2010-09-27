@@ -4,6 +4,11 @@
 
 <ul class="groups">
 <% @groups.each do |group| %>
-  <li><%= link_to group.name, group_contacts_path(group) %></li>
+  <li>
+    <%= link_to group.name, group_contacts_path(group) %>
+    (Total: <%= group.contacts.count %>,
+    Male: <%= group.contacts.male.count %>,
+    Female: <%= group.contacts.female.count %>)
+  </li>
 <% end %>
 </ul>
