@@ -4,7 +4,7 @@ describe ContactsController do
   subject { controller }
   
   before do
-    @group = Factory.create(:group)
+    @group = Factory(:group)
   end
   
   def do_get(action)
@@ -20,6 +20,15 @@ describe ContactsController do
     before do
       sign_in
       do_get(:index)
+    end
+    
+    it { should respond_with(:success) }
+  end
+  
+  describe 'GET :new' do
+    before do
+      sign_in
+      do_get(:new)
     end
     
     it { should respond_with(:success) }
