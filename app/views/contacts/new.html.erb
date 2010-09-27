@@ -1,11 +1,13 @@
 <% @title = "New contact in group \"#{@group.name}\"" %>
 
-<%= semantic_form_for [@group, @contact] do |form| %>
+<%= semantic_form_for [@group, @contact],
+  :html => { :multipart => true } do |form| %>
   <%= form.semantic_errors %>
   <%= form.inputs do %>
     <%= form.input :name %>
     <%= form.input :phone %>
-    <%= form.input :gender, :as => :select, :collection => [['Male', 'm'], ['Female', 'f']] %>
+    <%= form.input :gender, :as => :select, 
+      :collection => [['Male', 'm'], ['Female', 'f']] %>
     <%= form.input :photo %>
   <% end %>
   <%= form.buttons do %>

@@ -12,16 +12,20 @@ class Contact < ActiveRecord::Base
   
   # Gender validations
   validates :gender,
+    :allow_blank => true,
     :inclusion => { :in => ['m', 'f'] },
     :length => { :maximum => 1 }
     
   # Phone validations
   validates :phone,
+    :allow_blank => true,
     :format => { :with => PhoneRegexp }
   
   # Paperclip validations
-  validates_attachment_content_type :photo, :content_type => CONTENT_TYPES
-  validates_attachment_size :photo, :less_than => 2.megabytes
+  validates_attachment_content_type :photo, :content_type => CONTENT_TYPES,
+    :unless =>  Proc.new { |model| model.photo_file_name.blank? }
+  validates_attachment_size :photo, :less_than => 2.megabytes,
+    :unless =>  Proc.new { |model| model.photo_file_name.blank? }
   
   # This method return display gender name: 'Male' for 'm' and 'Female' for 'f'.
   def gender_display
