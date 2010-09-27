@@ -13,7 +13,8 @@ class GroupsController < ApplicationController
     @group = Group.new(params[:group])
     
     if @group.save
-      redirect_to @group, :success => 'Group successfully added'
+      redirect_to group_contacts_path(@group),
+        :success => 'Group successfully added'
     else
       render 'new'
     end

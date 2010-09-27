@@ -57,32 +57,13 @@ describe GroupsController do
     
     describe 'successful' do
       before do
-        @group = Factory.build(:group)
+        @group = Factory(:group)
         Group.stub!(:new).and_return(@group)
         @group.should_receive(:save).and_return(true)
-        post :create
+        post :create, :group => @group
       end
       
-      it { should redirect_to(@group) }
-    end
-  end
-  
-  describe 'GET :show' do
-    before do
-      sign_in
-      @group = Factory(:group)
-      get :show, :id => @group
-    end
-    
-    it { should respond_with(:success) }
-    
-    it 'should have contacts list' do
-      response.should have_selector('ul.contacts')
-    end
-    
-    it 'should have a link for creating new contact' do
-      response.should have_selector('a',
-        :href => new_group_contact_path(@group))
+      it { should redirect_to(group_contacts_path(@group)) }
     end
   end
 end

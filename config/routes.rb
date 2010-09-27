@@ -9,7 +9,7 @@ Cobook::Application.routes.draw do
     :controller => 'sessions',
     :only => [:new, :create, :destroy]
   
-  resources :groups do
+  resources :groups, :except => :show do
     resources :contacts
   end
   

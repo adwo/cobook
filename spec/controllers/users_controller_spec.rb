@@ -30,7 +30,7 @@ describe UsersController do
     
     describe 'successful' do
       before do
-        @user = Factory.build(:user)
+        @user = Factory(:user)
         User.stub!(:new).and_return(@user)
         @user.should_receive(:save).and_return(true)
         post :create
