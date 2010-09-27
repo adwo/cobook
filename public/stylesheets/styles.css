@@ -34,6 +34,14 @@ h2 {
   padding: 10px 0;
 }
 
+.body ul {
+  margin-left: 20px;
+}
+
+.body ul li {
+  list-style-type: square;
+}
+
 .header {
   position: relative;
   margin-bottom: 20px;
