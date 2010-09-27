@@ -1,5 +1,7 @@
 <% @title = 'Groups' %>
 
+<%= link_to 'New group', new_group_path %>
+
 <ul class="groups">
 <% @groups.each do |group| %>
   <li><%= group.name %></li>
