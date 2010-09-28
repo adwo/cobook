@@ -1,5 +1,6 @@
 class Group < ActiveRecord::Base
-  has_many :contacts, :dependent => :destroy 
+  belongs_to :user
+  has_many :contacts, :dependent => :destroy
   
   validates :name,
     :presence => true
