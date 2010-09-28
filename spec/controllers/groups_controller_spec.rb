@@ -80,4 +80,16 @@ describe GroupsController do
       response.should have_selector("form#edit_group_#{@group.id}")
     end
   end
+  
+  describe 'DELETE :destroy' do
+    before do
+      sign_in
+      @group = Factory(:group)
+      Group.stub!(:find).and_return(@group)
+      @group.should_receive(:destroy).and_return(true)
+      delete :destroy, :id => @group
+    end
+    
+    it { should redirect_to(groups_path) }
+  end
 end
