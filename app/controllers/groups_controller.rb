@@ -39,6 +39,7 @@ class GroupsController < ApplicationController
   def destroy
     Group.find(params[:id]).destroy
     
-    redirect_to groups_path
+    redirect_to groups_path,
+      :notice => 'Group successfully removed.'
   end
 end

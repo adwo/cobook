@@ -3,6 +3,7 @@
 <p class="actions">
   <%= link_to 'New contact', new_group_contact_path(@group) %>
   <%= link_to 'Edit group', edit_group_path(@group) %>
+  <%= link_to 'Remove group', group_path(@group), :method => :delete %>
 </p>
 
 <ul class="contacts">
