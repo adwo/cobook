@@ -89,6 +89,11 @@ describe ContactsController do
       response.should have_selector('a',
         :href => edit_group_contact_path(@group, @contact))
     end
+    
+    it 'should have a link for removing contact' do
+      response.should have_selector('a',
+        :href => group_contact_path(@group, @contact))
+    end
   end
   
   describe 'GET :edit' do
@@ -103,5 +108,17 @@ describe ContactsController do
     it 'should have a form for editing group' do
       response.should have_selector("form#edit_contact_#{@contact.id}")
     end
+  end
+  
+  describe 'DELETE :destroy' do
+    before do
+      sign_in
+      @contact = Factory(:contact)
+      Contact.stub!(:find).and_return(@contact)
+      @contact.should_receive(:destroy).and_return(true)
+      delete :destroy, :id => @contact, :group_id => @group
+    end
+    
+    it { should redirect_to(group_contacts_path(@group)) }
   end
 end

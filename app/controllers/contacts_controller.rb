@@ -44,4 +44,11 @@ class ContactsController < ApplicationController
       render 'edit'
     end
   end
+  
+  def destroy
+    @contact = Contact.find(params[:id])
+    @contact.destroy
+    
+    redirect_to group_contacts_path(@contact.group)
+  end
 end

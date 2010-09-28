@@ -3,6 +3,8 @@
 <p class="actions">
   <%= link_to 'Back to contacts list', group_contacts_path(@group) %>
   <%= link_to 'Edit contact', edit_group_contact_path(@group, @contact) %>
+  <%= link_to 'Remove contact', group_contact_path(@group, @contact),
+    :method => :delete %>
 </p>
 
 <%= image_tag @contact.photo.url(:normal) %>
